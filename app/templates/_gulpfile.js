@@ -3,13 +3,21 @@ var plugins = require("gulp-load-plugins")({lazy:false});
 
 gulp.task('scripts', function(){
     //combine all js files of the app
+// var jshintOptions = {
+//       strict:false,
+//       undef:false,
+//       globalstrict:false
+//     }
     gulp.src(['!./app/**/*_test.js','./app/**/*.js'])
-        .pipe(plugins.jshint())
-        .pipe(plugins.jshint.reporter('default'))
-        .pipe(plugins.concat('app.js'))
+        // .pipe(plugins.jshint(jshintOptions))
+        // .pipe(plugins.jshint.reporter('default'))
+        .pipe(plugins.concat('main.js'))
         .pipe(gulp.dest('./build'));
 });
-
+gulp.task('cleanBuild', function () {
+    gulp.src('build', {read: false})
+        .pipe(plugins.clean());
+});
 gulp.task('templates',function(){
     //combine all template files of the app into a js file
     gulp.src(['!./app/index.html',
@@ -20,7 +28,7 @@ gulp.task('templates',function(){
 
 gulp.task('css', function(){
     gulp.src('./app/**/*.css')
-        .pipe(plugins.concat('app.css'))
+        .pipe(plugins.concat('main.css'))
         .pipe(gulp.dest('./build'));
 });
 
@@ -41,15 +49,15 @@ gulp.task('vendorCSS', function(){
 });
 
 gulp.task('copy-index', function() {
-    gulp.src('./app/index.html')    
+    gulp.src('./app/index.html')
         .pipe(gulp.dest('./build'));
 });
 
 gulp.task('watch',function(){
     gulp.watch([
-        'build/**/*.html',        
+        'build/**/*.html',
         'build/**/*.js',
-        'build/**/*.css'        
+        'build/**/*.css'
     ], function(event) {
         return gulp.src(event.path)
             .pipe(plugins.connect.reload());
@@ -67,4 +75,4 @@ gulp.task('connect', plugins.connect.server({
     livereload: true
 }));
 
-gulp.task('default',['connect','scripts','templates','css','copy-index','vendorJS','vendorCSS','watch']);
+gulp.task('default',['cleanBuild','connect','scripts','templates','css','copy-index','vendorJS','vendorCSS','watch']);

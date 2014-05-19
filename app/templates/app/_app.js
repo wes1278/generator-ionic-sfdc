@@ -7,3 +7,19 @@ angular.module('<%= _.slugify(appname) %>', [ 'ngRoute','<%= _.slugify(appname) 
         redirectTo: '/'
       });
   });
+
+angular.module('<%= _.slugify(appname) %>-main',['ngRoute'])
+  .config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      });
+  })
+  .controller('MainCtrl', function ($scope) {
+    $scope.awesomeThings = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
+    ];
+  });

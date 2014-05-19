@@ -36,25 +36,26 @@ var GulpNgGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     this.mkdir('app');
-    this.copy('app/_app.css', 'app/app.css');
-    this.copy('app/_app.js','app/app.js');
-    this.copy('app/_app_controller.js','app/app_controller.js');
-    this.copy('app/_app_controller_test.js','app/app_controller_test.js');
+    this.copy('app/_app.css', 'app/styles/main.css');
+    this.copy('app/_app.js','app/scripts/main.js');
+    // this.copy('app/_app_controller.js','app/app_controller.js');
+    // this.copy('app/_app_controller_test.js','app/app_controller_test.js');
     this.copy('app/_index.html','app/index.html');
+    this.copy('_gitignore','.gitignore');
 
-    this.mkdir('app/components');
-    this.copy('app/components/_app_service.js', 'app/components/app_service.js');
-    this.copy('app/components/_app_service_test.js', 'app/components/app_service_test.js');
+    // this.mkdir('app/components');
+    // this.copy('app/components/_app_service.js', 'app/components/app_service.js');
+    // this.copy('app/components/_app_service_test.js', 'app/components/app_service_test.js');
 
-    this.mkdir('app/main');
-    this.copy('app/main/_main.html', 'app/main/main.html');
-    this.copy('app/main/_main_controller.js', 'app/main/main_controller.js');
-    this.copy('app/main/_main_controller_test.js', 'app/main/main_controller_test.js');
+    // this.mkdir('app/main');
+    this.copy('app/main/_main.html', 'app/views/main.html');
+    // this.copy('app/main/_main_controller.js', 'app/views/main_controller.js');
+    // this.copy('app/main/_main_controller_test.js', 'app/views/main_controller_test.js');
   },
 
-  projectfiles: function () {    
-    this.copy('_bowerrc', '.bowerrc');    
-    this.copy('_bower.json', 'bower.json');    
+  projectfiles: function () {
+    this.copy('_bowerrc', '.bowerrc');
+    this.copy('_bower.json', 'bower.json');
     this.copy('_gulpfile.js', 'gulpfile.js');
     this.copy('_package.json', 'package.json');
     this.copy('_karma-unit.js', 'karma-unit.js');
