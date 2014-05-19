@@ -36,6 +36,16 @@ gulp.task('vendorJS', function(){
     //concatenate vendor JS files
     gulp.src(['!./bower_components/**/*.min.js',
         './bower_components/**/*.js'])
+      /*
+       * If you need the scripts to be loaded in a different order,
+       * edit the array below
+       */
+        .pipe(plugins.order([
+          "**/jquery.js",
+          "**/angular.js",
+          "**/angular-*.js"
+        ]))
+
         .pipe(plugins.concat('lib.js'))
         .pipe(gulp.dest('./build'));
 });
