@@ -1,7 +1,6 @@
-This is a yeoman generator for an angularjs project that follows the [Best Practice Recommendations for Angular App Structure][1].
+This is a yeoman generator for an angular project that uses the ionic framework and has ngForce to connect to salesforce.
 
-It takes advantage of the gulp build tool and makes use of bower and npm for dependency management.
-
+It uses gulp to perform some build tasks.
 -----
 
 #### GENERATED DIRECTORY STRUCTURE ####
@@ -19,7 +18,7 @@ It takes advantage of the gulp build tool and makes use of bower and npm for dep
       app_controller.js
       app_controller_test.js
       index.html
-    bower_components/    
+    bower_components/
     node_modules/
     .bowerrc
     .gitignore
@@ -55,9 +54,9 @@ It takes advantage of the gulp build tool and makes use of bower and npm for dep
 -----
 
 #### USAGE ####
-1) npm install -g generator-gulp-ng
+1) npm install -g generator-ionic-sfdc (once it's uploaded; for now, you need to npm install -g git:URLTOREPO)
 
-2) mkdir myApp && cd myApp && yo gulp-ng
+2) mkdir myApp && cd myApp && yo ionic-sfdc
 
 3) gulp
 
@@ -70,9 +69,6 @@ It takes advantage of the gulp build tool and makes use of bower and npm for dep
 ----
 
 #### Support ####
-For questions and issues: [https://github.com/henyojess/generator-gulp-ng/issues][7]
-
-
   [1]: https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub
   [2]: http://nodejs.org/
   [3]: http://www.npmjs.org/
